@@ -34,7 +34,7 @@ export default function Home() {
 
         <Box
           component="img"
-          src="/newLogo.png"
+          src="/newLogo.jpg"
           alt="Logo"
           sx={{
             width: { xs: 150, sm: 200, md: 200 },
