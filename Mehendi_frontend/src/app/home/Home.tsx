@@ -1,8 +1,12 @@
-import { Box, Typography, Button, Divider } from "@mui/material";
+"use client";
+
+import { Box, Typography, Button, Divider, Skeleton } from "@mui/material";
 import PackageCards from "../components/PackageCards";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium"; // 🏆 Professionalism
 import VerifiedIcon from "@mui/icons-material/Verified"; // ✅ Quality assurance
 import HomeIcon from "@mui/icons-material/Home"; // 🏡 Customer comfort
+import { useState } from "react";
+import Footer from "../components/layout/Footer";
 
 export default function Home() {
   const pkgData = [
@@ -10,6 +14,8 @@ export default function Home() {
     { image: "/basic.jpg", title: "Basic Package" },
     { image: "/festival.jpg", title: "Festival Package" },
   ];
+
+  const [loaded, setLoaded] = useState<boolean>(false);
   return (
     <>
       {/* First Section */}
@@ -25,15 +31,29 @@ export default function Home() {
         }}
       >
         {/* Logo */}
+        {!loaded && (
+          <Skeleton
+            variant="rounded"
+            width={200}
+            height={60}
+            sx={{
+              mb: 3,
+              borderRadius: 4,
+            }}
+          />
+        )}
+
         <Box
           component="img"
-          src="/mehendiLogo.jpg"
+          src="/newLogo.png"
           alt="Logo"
+          onLoad={() => setLoaded(true)}
           sx={{
             width: { xs: 150, sm: 200, md: 200 },
             height: "auto",
-            mb: 3,
-            borderRadius: 16,
+            mb: -3,
+            borderRadius: 2,
+            display: loaded ? "block" : "none",
           }}
         />
 
@@ -317,6 +337,8 @@ export default function Home() {
           and unforgettable memories.
         </Typography>
       </Box>
+
+      <Footer />
     </>
   );
 }

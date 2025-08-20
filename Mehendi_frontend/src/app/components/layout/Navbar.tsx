@@ -54,8 +54,7 @@ export default function Navbar() {
               letterSpacing: ".1rem",
               textDecoration: "none",
               fontFamily: "Jomolhari",
-              
-              alignItems: "flex-end", // aligns letters to bottom
+              alignItems: "flex-end",
             }}
           >
             <span
