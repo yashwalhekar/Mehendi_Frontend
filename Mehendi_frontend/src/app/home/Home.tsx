@@ -31,23 +31,11 @@ export default function Home() {
         }}
       >
         {/* Logo */}
-        {!loaded && (
-          <Skeleton
-            variant="rounded"
-            width={200}
-            height={60}
-            sx={{
-              mb: 3,
-              borderRadius: 4,
-            }}
-          />
-        )}
 
         <Box
           component="img"
           src="/newLogo.png"
           alt="Logo"
-          onLoad={() => setLoaded(true)}
           sx={{
             width: { xs: 150, sm: 200, md: 200 },
             height: "auto",
