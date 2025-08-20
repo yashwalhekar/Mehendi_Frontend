@@ -121,7 +121,7 @@ export default function Navbar() {
                 </MenuItem>
               ))}
               {/* Login for Mobile */}
-              <MenuItem onClick={handleCloseNavMenu}>
+              {/* <MenuItem onClick={handleCloseNavMenu}>
                 <Typography
                   textAlign="center"
                   component={Link}
@@ -130,7 +130,7 @@ export default function Navbar() {
                 >
                   Login
                 </Typography>
-              </MenuItem>
+              </MenuItem> */}
             </Menu>
           </Box>
 
@@ -150,15 +150,26 @@ export default function Navbar() {
               fontFamily: "jomolhari",
             }}
           >
-            <span style={{ color: "red" }}>M</span>
-            <span style={{ color: "green" }}>e</span>
-            <span style={{ color: "blue" }}>h</span>
-            <span style={{ color: "orange" }}>e</span>
-            <span style={{ color: "purple" }}>n</span>
-            <span style={{ color: "brown" }}>d</span>
-            <span style={{ color: "pink" }}>e</span>
-            <span style={{ color: "teal" }}>e</span>
-            <span style={{ color: "black" }}>s</span>
+            <span
+              style={{
+                background: "linear-gradient(90deg, #3A633E,#CA7017)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                display: "inline-block",
+              }}
+            >
+              M
+            </span>
+            <span
+              style={{
+                background: "linear-gradient(90deg, #3A633E,#CA7017)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                display: "inline-block",
+              }}
+            >
+              ehendees
+            </span>
           </Typography>
 
           {/* Desktop Menu + Separate Login */}
@@ -189,7 +200,7 @@ export default function Navbar() {
             ))}
 
             {/* Login Button (always at the end) */}
-            <Button
+            {/* <Button
               component={Link}
               href="/login"
               variant="outlined"
@@ -198,7 +209,7 @@ export default function Navbar() {
               size="small"
             >
               Login
-            </Button>
+            </Button> */}
           </Box>
         </Toolbar>
       </Container>
