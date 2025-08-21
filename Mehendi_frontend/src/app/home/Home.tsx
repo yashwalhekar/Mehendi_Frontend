@@ -5,7 +5,7 @@ import PackageCards from "../components/PackageCards";
 import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
 import VerifiedIcon from "@mui/icons-material/Verified";
 import HomeIcon from "@mui/icons-material/Home";
-import { useState } from "react";
+import { JSX, useState } from "react";
 import Footer from "../components/layout/Footer";
 import {
   pkgData,
@@ -15,7 +15,7 @@ import {
 } from "../../Data/homeContent";
 
 export default function Home() {
-  const iconMap: any = {
+  const iconMap: Record<string, JSX.Element> = {
     WorkspacePremiumIcon: (
       <WorkspacePremiumIcon
         sx={{ color: "white", fontSize: { xs: 25, sm: 30, md: 35 } }}
@@ -213,7 +213,7 @@ export default function Home() {
               key={i}
               sx={{
                 flex: { xs: "0 0 100%", sm: "0 0 auto" }, // full width on mobile, auto on bigger screens
-                scrollSnapAlign: { xs: "center", sm: "none" }, // snap center on mobile
+                scrollSnapAlign: { xs: "center", sm: "center" }, // snap center on mobile
               }}
             >
               <PackageCards image={pkg.image} title={pkg.title} />
@@ -267,18 +267,33 @@ export default function Home() {
           <Divider sx={{ bgcolor: "white", width: "60%" }} />
 
           {whatWeServe.map((item, i) => (
-            <Box key={i} display="flex" alignItems="center" gap={1}>
-              {iconMap[item.icon]}
-              <Typography
-                color="white"
-                fontWeight="bold"
-                sx={{
-                  fontSize: { xs: 18, sm: 22, md: 28 },
-                  fontFamily: "karma",
-                }}
-              >
-                {item.title}
-              </Typography>
+            <Box
+              key={i}
+              display="flex"
+              flexDirection="column"
+              alignItems="center"
+              gap={1}
+              width="100%"
+            >
+              {/* Row with icon + text */}
+              <Box display="flex" alignItems="center" gap={1}>
+                {iconMap[item.icon]}
+                <Typography
+                  color="white"
+                  fontWeight="bold"
+                  sx={{
+                    fontSize: { xs: 18, sm: 22, md: 28 },
+                    fontFamily: "karma",
+                  }}
+                >
+                  {item.title}
+                </Typography>
+              </Box>
+
+              {/* Divider (skip after last item) */}
+              {i < whatWeServe.length - 1 && (
+                <Divider sx={{ bgcolor: "white", width: "60%", my: 1 }} />
+              )}
             </Box>
           ))}
         </Box>
@@ -294,6 +309,11 @@ export default function Home() {
           color: "white",
           textAlign: "center",
           p: { xs: 3, sm: 4, md: 5 },
+          transition: "all 0.4s ease-in-out",
+          "&:hover": {
+            boxShadow: "0px 8px 30px rgba(0,0,0,0.4)",
+            transform: "scale(1.01)",
+          },
         }}
       >
         <Typography
@@ -316,6 +336,8 @@ export default function Home() {
             mt: 3,
             fontSize: { xs: 14, sm: 16, md: 20 },
             fontFamily: "inter",
+            transition: "all 0.3s ease-in-out",
+            "&:hover": { opacity: 1, transform: "translateY(0)" },
           }}
         >
           {whyChooseUs}
