@@ -2,32 +2,49 @@
 
 import { Box, Typography, Button, Divider, Skeleton } from "@mui/material";
 import PackageCards from "../components/PackageCards";
-import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium"; // 🏆 Professionalism
-import VerifiedIcon from "@mui/icons-material/Verified"; // ✅ Quality assurance
-import HomeIcon from "@mui/icons-material/Home"; // 🏡 Customer comfort
+import WorkspacePremiumIcon from "@mui/icons-material/WorkspacePremium";
+import VerifiedIcon from "@mui/icons-material/Verified";
+import HomeIcon from "@mui/icons-material/Home";
 import { useState } from "react";
 import Footer from "../components/layout/Footer";
+import {
+  pkgData,
+  aboutUs,
+  whatWeServe,
+  whyChooseUs,
+} from "../../Data/homeContent";
 
 export default function Home() {
-  const pkgData = [
-    { image: "/bridal.jpg", title: "Bridal Package" },
-    { image: "/basic.jpg", title: "Basic Package" },
-    { image: "/festival.jpg", title: "Festival Package" },
-  ];
+  const iconMap: any = {
+    WorkspacePremiumIcon: (
+      <WorkspacePremiumIcon
+        sx={{ color: "white", fontSize: { xs: 25, sm: 30, md: 35 } }}
+      />
+    ),
+    VerifiedIcon: (
+      <VerifiedIcon
+        sx={{ color: "white", fontSize: { xs: 25, sm: 30, md: 35 } }}
+      />
+    ),
+    HomeIcon: (
+      <HomeIcon sx={{ color: "white", fontSize: { xs: 25, sm: 30, md: 35 } }} />
+    ),
+  };
 
   const [loaded, setLoaded] = useState<boolean>(false);
+
   return (
     <>
       {/* First Section */}
       <Box
         sx={{
           display: "flex",
-          flexDirection: "column", // stack vertically
-          alignItems: "center", // center horizontally
-          justifyContent: "center", // center vertically
-          height: "80vh",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          height: { xs: "70vh", sm: "75vh", md: "80vh" },
           textAlign: "center",
-          p: 2,
+          p: { xs: 2, sm: 3, md: 4 },
         }}
       >
         {/* Logo */}
@@ -42,14 +59,13 @@ export default function Home() {
             }}
           />
         )}
-
         <Box
           component="img"
           src="/newLogo.jpg"
           alt="Logo"
           onLoad={() => setLoaded(true)}
           sx={{
-            width: { xs: 150, sm: 200, md: 200 },
+            width: { xs: 120, sm: 160, md: 200 },
             height: "auto",
             mb: -3,
             borderRadius: 2,
@@ -58,7 +74,14 @@ export default function Home() {
         />
 
         {/* Heading */}
-        <Typography variant="h4" fontFamily={"Inria Serif"} gutterBottom>
+        <Typography
+          variant="h4"
+          fontFamily={"Inria Serif"}
+          gutterBottom
+          sx={{
+            fontSize: { xs: 22, sm: 28, md: 34 },
+          }}
+        >
           Mehendees
         </Typography>
 
@@ -67,19 +90,23 @@ export default function Home() {
           variant="h5"
           fontFamily={"Judson"}
           sx={{
-            maxWidth: 600,
+            maxWidth: { xs: "90%", sm: 600 },
             mx: "auto",
+            fontSize: { xs: 16, sm: 18, md: 20 },
           }}
         >
           Let your hands tell a story of celebration, culture, and joy with
           intricate mehendi art
         </Typography>
 
-        {/* Button */}
+        {/* CTA Button */}
         <Button
           variant="contained"
           sx={{
             mt: 3,
+            px: { xs: 2, sm: 3, md: 4 },
+            py: { xs: 1, sm: 1.5 },
+            fontSize: { xs: 12, sm: 14, md: 16 },
             background: "#FF5B0A",
             opacity: "0.9",
             transition: "all 0.3s ease-in-out",
@@ -94,13 +121,13 @@ export default function Home() {
         </Button>
       </Box>
 
-      {/* Second Section (Image centered) */}
+      {/* Second Section (Image) */}
       <Box
         sx={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          py: 5,
+          py: { xs: 3, sm: 5 },
         }}
       >
         <Box
@@ -108,33 +135,35 @@ export default function Home() {
           src="/Mehendi_hand.jpg"
           alt="Mehendi Hand"
           sx={{
-            width: { xs: "100%", sm: "90%", md: "80%" }, // responsive full width
-            height: 950, // fixed height to allow cropping
-            objectFit: "cover", // crop instead of stretching
+            width: { xs: "95%", sm: "90%", md: "80%" },
+            height: { xs: 250, sm: 500, md: 950 },
+            objectFit: "cover",
             borderRadius: 2,
             boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
           }}
         />
       </Box>
-      {/* {About us} */}
+
+      {/* About Us */}
       <Box
         sx={{
           backgroundColor: "#4B8052",
           color: "white",
           textAlign: "center",
-          px: 4,
-          py: 8,
+          px: { xs: 2, sm: 4 },
+          py: { xs: 5, sm: 8 },
           mt: 4,
-          clipPath: "ellipse(100% 100% at 40% 100%)", // 👈 curve from middle
+          clipPath: { xs: "none", sm: "ellipse(100% 100% at 40% 100%)" },
         }}
       >
         <Typography
           variant="h4"
-          letterSpacing={"10px"}
+          letterSpacing={"6px"}
           fontWeight={"medium"}
           fontFamily={"inter"}
           my={2}
           gutterBottom
+          sx={{ fontSize: { xs: 22, sm: 28, md: 34 } }}
         >
           About Us
         </Typography>
@@ -143,62 +172,67 @@ export default function Home() {
           maxWidth="940px"
           mx="auto"
           fontFamily={"inter"}
-          fontSize={20}
+          sx={{ fontSize: { xs: 14, sm: 16, md: 20 } }}
         >
-          We are passionate about the art of Mehendi and believe that every
-          celebration deserves a touch of tradition and elegance. Our platform
-          connects you with skilled and trained Mehendi artists who bring
-          creativity, precision, and love for design to every occasion. Whether
-          it’s a wedding, engagement, festival, or any special event, we make
-          sure your day is made more beautiful with stunning Mehendi designs.
-          Our goal is not just to decorate your hands but to create an
-          experience that stays in your memory forever.
+          {aboutUs}
         </Typography>
       </Box>
 
-      {/* {Packages} */}
-      <Box sx={{ px: 7, py: 8, mt: 3 }}>
+      {/* Packages */}
+      <Box sx={{ px: { xs: 2, sm: 4, md: 7 }, py: { xs: 5, sm: 8 }, mt: 3 }}>
         <Typography
           variant="h4"
           gutterBottom
           sx={{
             maxWidth: 600,
-            fontSize: 30,
+            fontSize: { xs: 22, sm: 26, md: 30 },
             fontWeight: "bold",
             letterSpacing: "7px",
             fontFamily: "inter",
+            textAlign: { xs: "center", sm: "left" },
           }}
         >
           Crafting Traditions with a Modern Touch
         </Typography>
 
+        {/* Scrollable Container */}
         <Box
           sx={{
             display: "flex",
-            gap: 8,
-            flexWrap: "wrap",
+            gap: { xs: 2, sm: 4, md: 8 },
             mt: 4,
-            justifyContent: "center",
+            justifyContent: { xs: "flex-start", sm: "center" },
+            overflowX: { xs: "auto", sm: "visible" }, // scroll only on mobile
+            scrollSnapType: { xs: "x mandatory", sm: "none" }, // snap effect
+            WebkitOverflowScrolling: "touch",
+            "&::-webkit-scrollbar": { display: "none" }, // hide scrollbar
           }}
         >
-          {pkgData &&
-            pkgData.map((pkg, i) => (
-              <PackageCards key={i} image={pkg.image} title={pkg.title} />
-            ))}
+          {pkgData.map((pkg, i) => (
+            <Box
+              key={i}
+              sx={{
+                flex: { xs: "0 0 100%", sm: "0 0 auto" }, // full width on mobile, auto on bigger screens
+                scrollSnapAlign: { xs: "center", sm: "none" }, // snap center on mobile
+              }}
+            >
+              <PackageCards image={pkg.image} title={pkg.title} />
+            </Box>
+          ))}
         </Box>
       </Box>
 
-      {/* { what we serve} */}
+      {/* What We Serve */}
       <Box
         sx={{
           mt: 3,
           bgcolor: "#EEA700",
           borderRadius: 4,
           display: "flex",
-          flexDirection: "row",
-          gap: 5,
-          p: 4,
-          mx: 4,
+          flexDirection: { xs: "column", md: "row" },
+          gap: { xs: 3, md: 5 },
+          p: { xs: 2, sm: 4 },
+          mx: { xs: 2, sm: 4 },
         }}
       >
         {/* Image */}
@@ -206,135 +240,85 @@ export default function Home() {
           component={"img"}
           src="/footMehendi.jpg"
           alt="Mehendi Hand"
-          sx={{ width: 450, height: 500, borderRadius: 4 }}
+          sx={{
+            width: { xs: "100%", sm: 400, md: 450 },
+            height: { xs: 250, sm: 400, md: 500 },
+            borderRadius: 4,
+            objectFit: "cover",
+          }}
         />
-
-        {/* Right Section - Centered */}
+        {/* Right Section */}
         <Box
           display="flex"
           flexDirection="column"
           justifyContent="center"
           alignItems="center"
-          // textAlign="center"
           gap={3}
           flex={1}
         >
-          {/* Title */}
           <Typography
             variant="h1"
             fontFamily="karma"
             fontWeight="bold"
-            fontSize={35}
-            color="white"
+            sx={{ fontSize: { xs: 24, sm: 30, md: 35 }, color: "white" }}
           >
             What We Serve
           </Typography>
-
           <Divider sx={{ bgcolor: "white", width: "60%" }} />
 
-          {/* Professionalism */}
-          <Box display="flex" alignItems="center" gap={1}>
-            <WorkspacePremiumIcon sx={{ color: "white", fontSize: 35 }} />
-            <Typography
-              color="white"
-              fontWeight="bold"
-              sx={{ fontSize: 28, fontFamily: "karma" }}
-            >
-              Professionalism
-            </Typography>
-          </Box>
-
-          <Divider sx={{ bgcolor: "white", width: "60%" }} />
-
-          {/* Quality Assurance */}
-          <Box display="flex" alignItems="center" gap={1}>
-            <VerifiedIcon sx={{ color: "white", fontSize: 35 }} />
-            <Typography
-              color="white"
-              fontWeight="bold"
-              sx={{ fontSize: 28, fontFamily: "karma" }}
-            >
-              Quality Assurance
-            </Typography>
-          </Box>
-
-          <Divider sx={{ bgcolor: "white", width: "60%" }} />
-
-          {/* Customer Comfort */}
-          <Box display="flex" alignItems="center" gap={1}>
-            <HomeIcon sx={{ color: "white", fontSize: 35 }} />
-            <Typography
-              color="white"
-              fontWeight="bold"
-              sx={{ fontSize: 28, fontFamily: "karma" }}
-            >
-              Customer Comfort
-            </Typography>
-          </Box>
+          {whatWeServe.map((item, i) => (
+            <Box key={i} display="flex" alignItems="center" gap={1}>
+              {iconMap[item.icon]}
+              <Typography
+                color="white"
+                fontWeight="bold"
+                sx={{
+                  fontSize: { xs: 18, sm: 22, md: 28 },
+                  fontFamily: "karma",
+                }}
+              >
+                {item.title}
+              </Typography>
+            </Box>
+          ))}
         </Box>
       </Box>
 
-      {/* why to choose us */}
       {/* Why Choose Us */}
       <Box
         sx={{
           mt: 6,
-          mx: 4,
+          mx: { xs: 2, sm: 4 },
           borderRadius: 4,
           bgcolor: "#4B8052",
           color: "white",
           textAlign: "center",
-          p: 5,
-          transition: "all 0.4s ease-in-out",
-          "&:hover": {
-            boxShadow: "0px 8px 30px rgba(0,0,0,0.4)",
-            transform: "scale(1.01)",
-          },
+          p: { xs: 3, sm: 4, md: 5 },
         }}
       >
-        {/* Title */}
         <Typography
           variant="h4"
           fontFamily="karma"
           fontWeight="bold"
-          fontSize={35}
           gutterBottom
           sx={{
+            fontSize: { xs: 24, sm: 30, md: 35 },
             letterSpacing: "5px",
           }}
         >
           Why Choose Us
         </Typography>
-
-        {/* Hidden Text - Reveals on Hover */}
         <Typography
           variant="body1"
           sx={{
             maxWidth: 950,
             mx: "auto",
             mt: 3,
-            fontSize: 20,
+            fontSize: { xs: 14, sm: 16, md: 20 },
             fontFamily: "inter",
-            // opacity: 0,
-            // transform: "translateY(15px)", // slide-in effect
-            transition: "all 0.3s ease-in-out",
-            "&:hover": {
-              opacity: 1,
-              transform: "translateY(0)",
-            },
           }}
         >
-          At Mehendees, we believe Mehendi is more than just an art – it’s a
-          tradition that adds beauty, joy, and meaning to your special moments.
-          That’s why we bring you a team of trained and professional Mehendi
-          artists who combine creativity with precision. We use only premium
-          quality, natural Mehendi to ensure deep, long-lasting color without
-          any harmful effects. Our service is designed to be hassle-free,
-          punctual, and personalized, so you can focus on enjoying your
-          celebration while we handle the details. From intricate bridal designs
-          to festive and modern patterns, we make sure every stroke reflects
-          elegance and perfection. Choosing us means choosing trust, quality,
-          and unforgettable memories.
+          {whyChooseUs}
         </Typography>
       </Box>
 
