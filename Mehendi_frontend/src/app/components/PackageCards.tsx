@@ -15,12 +15,12 @@ const PackageCards: React.FC<PackageCardProps> = ({ image, title }) => {
         position: "relative",
         borderRadius: 3,
         overflow: "hidden",
-        boxShadow: 4,
+        boxShadow: { xs: 0, sm: 0, md: 4 },
         width: 280,
         height: 300,
         transition: "all 0.3s ease-in-out",
         "&:hover": {
-          boxShadow: 8,
+          boxShadow: { xs: 2, sm: 4, md: 8 },
           transform: "translateY(-5px)",
         },
       }}

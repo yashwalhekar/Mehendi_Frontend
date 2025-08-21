@@ -11,7 +11,7 @@ const Footer = () => {
     <>
       <Box
         sx={{
-          px: 4,
+          px: { md: 4, xs: 1 },
           py: 2,
           mt: 3,
           bgcolor: "#4B8052",
@@ -28,7 +28,7 @@ const Footer = () => {
             fontFamily: "jomolhari",
             fontWeight: "medium",
             color: "white",
-            fontSize: 26,
+            fontSize: { xs: 16, md: 26 },
           }}
         >
           Elegance in Every Stroke
@@ -39,7 +39,7 @@ const Footer = () => {
             fontFamily: "jomolhari",
             fontWeight: "medium",
             color: "white",
-            fontSize: 16,
+            fontSize: 12,
             display: "flex",
             gap: 2,
             justifyContent: "center",
@@ -47,11 +47,17 @@ const Footer = () => {
           textAlign={"center"}
         >
           <span style={{ marginRight: "40px" }}>
-            <LocalPhoneIcon fontSize="small" sx={{ marginRight: 1 }} />
+            <LocalPhoneIcon
+              fontSize="small"
+              sx={{ marginRight: 1, fontSize: { xs: 10 } }}
+            />
             +91 7350304508
           </span>
           <span>
-            <MailIcon fontSize="small" sx={{ marginRight: 1 }} />
+            <MailIcon
+              fontSize="small"
+              sx={{ marginRight: 1, fontSize: { xs: 15 } }}
+            />
             mehendees@gmail.com
           </span>
         </Typography>

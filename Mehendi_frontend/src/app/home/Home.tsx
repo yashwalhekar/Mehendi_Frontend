@@ -80,6 +80,7 @@ export default function Home() {
           gutterBottom
           sx={{
             fontSize: { xs: 22, sm: 28, md: 34 },
+            color: "black",
           }}
         >
           Mehendees
@@ -93,6 +94,7 @@ export default function Home() {
             maxWidth: { xs: "90%", sm: 600 },
             mx: "auto",
             fontSize: { xs: 16, sm: 18, md: 20 },
+            color: "black",
           }}
         >
           Let your hands tell a story of celebration, culture, and joy with
@@ -190,6 +192,7 @@ export default function Home() {
             letterSpacing: "7px",
             fontFamily: "inter",
             textAlign: { xs: "center", sm: "left" },
+            color: "black",
           }}
         >
           Crafting Traditions with a Modern Touch
