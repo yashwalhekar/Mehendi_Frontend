@@ -32,7 +32,7 @@ const Footer = () => {
             mb: 2,
           }}
         >
-          &quot;Elegance in Every Stroke&quot;
+          Elegance in Every Stroke
         </Typography>
         <Typography
           variant="h5"
