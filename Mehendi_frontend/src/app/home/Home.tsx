@@ -42,9 +42,9 @@ export default function Home() {
           flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          height: { xs: "70vh", sm: "75vh", md: "80vh" },
+          height: { xs: "60vh", sm: "70vh", md: "80vh" },
           textAlign: "center",
-          p: { xs: 2, sm: 3, md: 4 },
+          p: { xs: 1, sm: 2, md: 4 },
         }}
       >
         {/* Logo */}
@@ -65,7 +65,7 @@ export default function Home() {
           alt="Logo"
           onLoad={() => setLoaded(true)}
           sx={{
-            width: { xs: 120, sm: 160, md: 200 },
+            width: { xs: 130, sm: 160, md: 200 },
             height: "auto",
             mb: -3,
             borderRadius: 2,
@@ -137,8 +137,8 @@ export default function Home() {
           src="/Mehendi_hand.jpg"
           alt="Mehendi Hand"
           sx={{
-            width: { xs: "95%", sm: "90%", md: "80%" },
-            height: { xs: 250, sm: 500, md: 950 },
+            width: { xs: "95%", sm: "85%", md: "80%" },
+            height: { xs: 250, sm: 450, md: 950 },
             objectFit: "cover",
             borderRadius: 2,
             boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
@@ -202,21 +202,26 @@ export default function Home() {
         <Box
           sx={{
             display: "flex",
-            gap: { xs: 2, sm: 4, md: 8 },
+            gap: { xs: 2, sm: 1, md: 6 },
             mt: 4,
-            justifyContent: { xs: "flex-start", sm: "center" },
-            overflowX: { xs: "auto", sm: "visible" }, // scroll only on mobile
-            scrollSnapType: { xs: "x mandatory", sm: "none" }, // snap effect
+            justifyContent: {
+              xs: "flex-start",
+              sm: "flex-start",
+              md: "center",
+            },
+            overflowX: { xs: "auto", sm: "auto" }, // scroll only on mobile
+            scrollSnapType: { xs: "x mandatory", sm: "x mandatory" }, // snap effect
             WebkitOverflowScrolling: "touch",
             "&::-webkit-scrollbar": { display: "none" }, // hide scrollbar
+            px: { xs: 1, sm: 0 }, // padding for partial visibility
           }}
         >
           {pkgData.map((pkg, i) => (
             <Box
               key={i}
               sx={{
-                flex: { xs: "0 0 100%", sm: "0 0 auto" }, // full width on mobile, auto on bigger screens
-                scrollSnapAlign: { xs: "center", sm: "center" }, // snap center on mobile
+                flex: { xs: "0 0 85%", sm: "0 0 45%", md: "0 0 auto" }, // ✅ less than 100% on mobile
+                scrollSnapAlign: { xs: "start", sm: "center", md: "center" }, // snap start looks better for partial visibility
               }}
             >
               <PackageCards image={pkg.image} title={pkg.title} />
@@ -232,10 +237,12 @@ export default function Home() {
           bgcolor: "#EEA700",
           borderRadius: 4,
           display: "flex",
-          flexDirection: { xs: "column", md: "row" },
-          gap: { xs: 3, md: 5 },
-          p: { xs: 2, sm: 4 },
-          mx: { xs: 2, sm: 4 },
+          flexDirection: { xs: "column", sm: "row", md: "row" },
+          gap: { xs: 3, sm: 3, md: 5 },
+          p: { xs: 2, sm: 2 },
+          mx: { xs: 2, sm: 2 },
+          justifyContent: "center",
+          alignItems: "center",
         }}
       >
         {/* Image */}
@@ -263,11 +270,11 @@ export default function Home() {
             variant="h1"
             fontFamily="karma"
             fontWeight="bold"
-            sx={{ fontSize: { xs: 24, sm: 30, md: 35 }, color: "white" }}
+            sx={{ fontSize: { xs: 24, sm: 27, md: 35 }, color: "white" }}
           >
             What We Serve
           </Typography>
-          <Divider sx={{ bgcolor: "white", width: "60%" }} />
+          <Divider sx={{ bgcolor: "white", width: { sm: "80%", md: "60%" } }} />
 
           {whatWeServe.map((item, i) => (
             <Box
@@ -285,7 +292,7 @@ export default function Home() {
                   color="white"
                   fontWeight="bold"
                   sx={{
-                    fontSize: { xs: 18, sm: 22, md: 28 },
+                    fontSize: { xs: 18, sm: 20, md: 28 },
                     fontFamily: "karma",
                   }}
                 >
@@ -295,7 +302,13 @@ export default function Home() {
 
               {/* Divider (skip after last item) */}
               {i < whatWeServe.length - 1 && (
-                <Divider sx={{ bgcolor: "white", width: "60%", my: 1 }} />
+                <Divider
+                  sx={{
+                    bgcolor: "white",
+                    width: { sm: "80%", md: "60%" },
+                    my: 1,
+                  }}
+                />
               )}
             </Box>
           ))}

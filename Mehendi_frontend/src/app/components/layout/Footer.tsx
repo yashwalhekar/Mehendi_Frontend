@@ -29,9 +29,10 @@ const Footer = () => {
             fontWeight: "medium",
             color: "white",
             fontSize: { xs: 16, md: 26 },
+            mb: 2,
           }}
         >
-          Elegance in Every Stroke
+          " Elegance in Every Stroke "
         </Typography>
         <Typography
           variant="h5"
@@ -39,7 +40,7 @@ const Footer = () => {
             fontFamily: "jomolhari",
             fontWeight: "medium",
             color: "white",
-            fontSize: 12,
+            fontSize: 14,
             display: "flex",
             gap: 2,
             justifyContent: "center",
@@ -49,7 +50,7 @@ const Footer = () => {
           <span style={{ marginRight: "40px" }}>
             <LocalPhoneIcon
               fontSize="small"
-              sx={{ marginRight: 1, fontSize: { xs: 10 } }}
+              sx={{ marginRight: 1, fontSize: { xs: 15 } }}
             />
             +91 7350304508
           </span>

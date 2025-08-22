@@ -12,6 +12,7 @@ import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
 import Link from "next/link";
+import { Drawer } from "@mui/material";
 
 const pages = [
   { label: "Services", path: "/categories" },
@@ -85,53 +86,53 @@ export default function Navbar() {
             <IconButton
               size="large"
               aria-label="menu"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
               onClick={handleOpenNavMenu}
             >
               <MenuIcon />
             </IconButton>
-            <Menu
-              id="menu-appbar"
-              anchorEl={anchorElNav}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "left",
-              }}
-              keepMounted
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "left",
-              }}
+
+            {/* Mobile Drawer */}
+            <Drawer
+              anchor="left"
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
-              sx={{ display: { xs: "block", md: "none" } }}
+              PaperProps={{
+                sx: { width: { sm: "50%", md: "70%" }, bgcolor: "#FFFCF6" }, // ✅ control width (e.g., 70% of screen)
+              }}
             >
-              {pages.map((page) => (
-                <MenuItem key={page.label} onClick={handleCloseNavMenu}>
-                  <Typography
-                    textAlign="center"
-                    component={Link}
-                    href={page.path}
-                    style={{ textDecoration: "none", color: "black" }}
-                    fontFamily="Jomolhari"
-                  >
-                    {page.label}
-                  </Typography>
-                </MenuItem>
-              ))}
-              {/* Login for Mobile */}
-              {/* <MenuItem onClick={handleCloseNavMenu}>
-                <Typography
-                  textAlign="center"
-                  component={Link}
-                  href="/login"
-                  style={{ textDecoration: "none", color: "inherit" }}
-                >
-                  Login
-                </Typography>
-              </MenuItem> */}
-            </Menu>
+              <Box
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  p: 2,
+                  gap: 2,
+                }}
+              >
+                {pages.map((page) => (
+                  <MenuItem key={page.label} onClick={handleCloseNavMenu}>
+                    <Typography
+                      component={Link}
+                      href={page.path}
+                      style={{ textDecoration: "none", color: "black" }}
+                      fontFamily="Jomolhari"
+                    >
+                      {page.label}
+                    </Typography>
+                  </MenuItem>
+                ))}
+
+                {/* Example: Login link */}
+                {/* <MenuItem onClick={handleCloseNavMenu}>
+        <Typography
+          component={Link}
+          href="/login"
+          style={{ textDecoration: "none", color: "black" }}
+        >
+          Login
+        </Typography>
+      </MenuItem> */}
+              </Box>
+            </Drawer>
           </Box>
 
           {/* Logo (Mobile) */}
