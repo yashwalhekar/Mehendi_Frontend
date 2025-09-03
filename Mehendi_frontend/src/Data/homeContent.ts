@@ -38,3 +38,38 @@ Our service is designed to be hassle-free, punctual, and personalized, so you ca
 From intricate bridal designs to festive and modern patterns, we make sure every stroke reflects elegance and perfection. 
 Choosing us means choosing trust, quality, and unforgettable memories.
 `;
+
+export const serviceData = [
+  {
+    image: "/bridal.jpg",
+    title: "Bridal Package",
+    description:
+      "Full bridal mehendi with intricate designs for hands and feet. Includes customized patterns.",
+    price: "₹10000",
+    features: [
+      "Full hand & feet coverage",
+      "Custom bridal designs",
+      "Free consultation",
+    ],
+  },
+  {
+    image: "/basic.jpg",
+    title: "Basic Package",
+    description:
+      "Simple and elegant mehendi for casual occasions and small functions.",
+    price: "₹3000",
+    features: ["Minimal designs", "Quick service", "Affordable pricing"],
+  },
+  {
+    image: "/festival.jpg",
+    title: "Festival Package",
+    description:
+      "Special mehendi designs for festivals like Diwali, Eid, Karva Chauth, etc.",
+    price: "₹5,000",
+    features: [
+      "Festive themed designs",
+      "Quick application",
+      "Attractive patterns",
+    ],
+  },
+];
