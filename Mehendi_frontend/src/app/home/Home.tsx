@@ -13,6 +13,7 @@ import {
   whatWeServe,
   whyChooseUs,
 } from "../../Data/homeContent";
+import Link from "next/link";
 
 export default function Home() {
   const iconMap: Record<string, JSX.Element> = {
@@ -123,25 +124,27 @@ export default function Home() {
           </Typography>
 
           {/* CTA Button */}
-          <Button
-            variant="contained"
-            sx={{
-              mt: 3,
-              px: { xs: 2, sm: 3, md: 4 },
-              py: { xs: 1, sm: 1.5 },
-              fontSize: { xs: 12, sm: 14, md: 16 },
-              background: "#FF5B0A",
-              opacity: "0.9",
-              transition: "all 0.3s ease-in-out",
-              "&:hover": {
-                background: "#e04e08",
-                transform: "scale(1.05)",
-                boxShadow: "0px 4px 15px rgba(255, 91, 10, 0.5)",
-              },
-            }}
-          >
-            Make It Mehendi Perfect ! Book Now
-          </Button>
+          <Link href={"/categories"}>
+            <Button
+              variant="contained"
+              sx={{
+                mt: 3,
+                px: { xs: 2, sm: 3, md: 4 },
+                py: { xs: 1, sm: 1.5 },
+                fontSize: { xs: 12, sm: 14, md: 16 },
+                background: "#FF5B0A",
+                opacity: "0.9",
+                transition: "all 0.3s ease-in-out",
+                "&:hover": {
+                  background: "#e04e08",
+                  transform: "scale(1.05)",
+                  boxShadow: "0px 4px 15px rgba(255, 91, 10, 0.5)",
+                },
+              }}
+            >
+              Make It Mehendi Perfect ! Book Now
+            </Button>
+          </Link>
         </Box>
 
         {/* Second Section (Image) */}
