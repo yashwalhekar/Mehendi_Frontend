@@ -16,7 +16,7 @@ import { bridalServices, festivalMehendiServices } from "@/Data/bridalService";
 
 const ServicesPage = () => {
   const bridalRef = useRef<HTMLDivElement | null>(null);
-  const otherRef = useRef<HTMLDivElement | null>(null);
+
   const festivalRef = useRef<HTMLDivElement | null>(null);
   const basicRef = useRef<HTMLDivElement | null>(null);
 
@@ -33,7 +33,6 @@ const ServicesPage = () => {
     left: false,
     right: true,
   });
-  const [otherScroll, setOtherScroll] = useState({ left: false, right: true });
 
   const checkScroll = (
     ref: React.RefObject<HTMLDivElement | null>,
