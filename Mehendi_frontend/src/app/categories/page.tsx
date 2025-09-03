@@ -89,7 +89,14 @@ const ServicesPage = () => {
   };
 
   // ----------- Card Component ----------
-  const ServiceCard = ({ service, bg }: { service: any; bg: string }) => (
+  type Service = {
+    id: number | string;
+    title: string;
+    description: string;
+    price: string;
+    image: string;
+  };
+  const ServiceCard = ({ service, bg }: { service: Service; bg: string }) => (
     <Box
       sx={{
         minWidth: { xs: "85%", sm: "48%", md: "40%", lg: "25%" },
