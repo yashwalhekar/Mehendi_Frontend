@@ -14,7 +14,6 @@ import {
   whyChooseUs,
 } from "../../Data/homeContent";
 import Link from "next/link";
-import HomePageCarousel from "../components/HomePageCarousel";
 
 export default function Home() {
   const iconMap: Record<string, JSX.Element> = {
@@ -150,7 +149,27 @@ export default function Home() {
         </Box>
 
         {/* Second Section (Image) */}
-        <HomePageCarousel />
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            py: { xs: 3, sm: 5 },
+          }}
+        >
+          <Box
+            component="img"
+            src="/Mehendi_hand.jpg"
+            alt="Mehendi Hand"
+            sx={{
+              width: { xs: "95%", sm: "85%", md: "80%" },
+              height: { xs: 250, sm: 450, md: 950 },
+              objectFit: "cover",
+              borderRadius: 2,
+              boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
+            }}
+          />
+        </Box>
 
         {/* About Us */}
         <Box
