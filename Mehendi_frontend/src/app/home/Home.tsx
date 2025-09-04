@@ -14,6 +14,7 @@ import {
   whyChooseUs,
 } from "../../Data/homeContent";
 import Link from "next/link";
+import HomePageCarousel from "../components/HomePageCarousel";
 
 export default function Home() {
   const iconMap: Record<string, JSX.Element> = {
@@ -52,7 +53,7 @@ export default function Home() {
             backgroundImage: "url('/backgrounImg.jpg')", // 👈 put your bg image here
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.25, // 👈 control opacity here
+            opacity: 0.35, // 👈 control opacity here
             zIndex: -1,
           },
         }}
@@ -98,7 +99,7 @@ export default function Home() {
           {/* Heading */}
           <Typography
             variant="h4"
-            fontFamily={"Inria Serif"}
+            fontFamily={"Serif"}
             gutterBottom
             sx={{
               fontSize: { xs: 22, sm: 28, md: 34 },
@@ -127,10 +128,11 @@ export default function Home() {
           <Link href={"/categories"}>
             <Button
               variant="contained"
+              size="small"
               sx={{
                 mt: 3,
                 px: { xs: 2, sm: 3, md: 4 },
-                py: { xs: 1, sm: 1.5 },
+                py: { sm: 1.5 },
                 fontSize: { xs: 12, sm: 14, md: 16 },
                 background: "#FF5B0A",
                 opacity: "0.9",
@@ -148,27 +150,7 @@ export default function Home() {
         </Box>
 
         {/* Second Section (Image) */}
-        <Box
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            py: { xs: 3, sm: 5 },
-          }}
-        >
-          <Box
-            component="img"
-            src="/Mehendi_hand.jpg"
-            alt="Mehendi Hand"
-            sx={{
-              width: { xs: "95%", sm: "85%", md: "80%" },
-              height: { xs: 250, sm: 450, md: 950 },
-              objectFit: "cover",
-              borderRadius: 2,
-              boxShadow: "0 4px 20px rgba(0,0,0,0.2)",
-            }}
-          />
-        </Box>
+        <HomePageCarousel />
 
         {/* About Us */}
         <Box
@@ -184,9 +166,9 @@ export default function Home() {
         >
           <Typography
             variant="h4"
-            letterSpacing={"6px"}
+            letterSpacing={"5px"}
             fontWeight={"medium"}
-            fontFamily={"inter"}
+            fontFamily={"Serif"}
             my={2}
             gutterBottom
             sx={{ fontSize: { xs: 22, sm: 28, md: 34 } }}
@@ -197,7 +179,7 @@ export default function Home() {
             variant="body1"
             maxWidth="940px"
             mx="auto"
-            fontFamily={"inter"}
+            fontFamily={"Serif"}
             sx={{ fontSize: { xs: 14, sm: 16, md: 20 } }}
           >
             {aboutUs}
@@ -214,7 +196,7 @@ export default function Home() {
               fontSize: { xs: 22, sm: 26, md: 30 },
               fontWeight: "bold",
               letterSpacing: "7px",
-              fontFamily: "inter",
+              fontFamily: "Serif",
               textAlign: { xs: "center", sm: "left" },
               color: "black",
             }}
@@ -292,7 +274,7 @@ export default function Home() {
           >
             <Typography
               variant="h1"
-              fontFamily="karma"
+              fontFamily="Serif"
               fontWeight="bold"
               sx={{ fontSize: { xs: 24, sm: 27, md: 35 }, color: "white" }}
             >
@@ -319,7 +301,7 @@ export default function Home() {
                     fontWeight="bold"
                     sx={{
                       fontSize: { xs: 18, sm: 20, md: 28 },
-                      fontFamily: "karma",
+                      fontFamily: "Serif",
                     }}
                   >
                     {item.title}
@@ -360,7 +342,7 @@ export default function Home() {
         >
           <Typography
             variant="h4"
-            fontFamily="karma"
+            fontFamily="Serif"
             fontWeight="bold"
             gutterBottom
             sx={{
@@ -377,7 +359,7 @@ export default function Home() {
               mx: "auto",
               mt: 3,
               fontSize: { xs: 14, sm: 16, md: 20 },
-              fontFamily: "inter",
+              fontFamily: "Serif",
               transition: "all 0.3s ease-in-out",
               "&:hover": { opacity: 1, transform: "translateY(0)" },
             }}

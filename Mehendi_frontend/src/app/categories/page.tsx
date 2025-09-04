@@ -119,7 +119,7 @@ const ServicesPage = () => {
       <Box sx={{ display: "flex", flexDirection: "column", p: 2, flexGrow: 1 }}>
         <Typography
           variant="h6"
-          sx={{ fontFamily: "Jomolhari", fontSize: 20 }}
+          sx={{ fontFamily: "Serif", fontSize: 20 }}
           gutterBottom
         >
           {service.title}
@@ -167,7 +167,7 @@ const ServicesPage = () => {
       />
 
       <Box sx={{ py: 2, mb: 4, width: { xs: "100%", sm: "70%", lg: "40%" } }}>
-        <Typography variant="h4" sx={{ fontFamily: "Playfair Display" }}>
+        <Typography variant="h4" sx={{ fontFamily: "Serif" }}>
           Elegant Mehendi Packages for Every Celebration
         </Typography>
       </Box>

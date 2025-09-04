@@ -34,9 +34,9 @@ export default function ServiceDetail() {
   return (
     <Box sx={{ p: { xs: 2, sm: 3, md: 5 }, maxWidth: "900px", mx: "auto" }}>
       <Box sx={{ display: "flex", alignItems: "center", mb: 3 }}>
-        <IconButton onClick={() => router.back()}>
+        {/* <IconButton onClick={() => router.back()}>
           <ArrowBackIcon />
-        </IconButton>
+        </IconButton> */}
         <Typography
           variant={isMobile ? "h6" : isTablet ? "h5" : "h4"}
           sx={{ fontWeight: "bold", ml: 1 }}

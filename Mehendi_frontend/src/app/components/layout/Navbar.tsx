@@ -54,7 +54,7 @@ export default function Navbar() {
               fontWeight: 700,
               letterSpacing: ".1rem",
               textDecoration: "none",
-              fontFamily: "Jomolhari",
+              fontFamily: "Serif",
               alignItems: "flex-end",
             }}
           >
@@ -114,7 +114,7 @@ export default function Navbar() {
                       component={Link}
                       href={page.path}
                       style={{ textDecoration: "none", color: "black" }}
-                      fontFamily="Jomolhari"
+                      fontFamily="Serif"
                     >
                       {page.label}
                     </Typography>
@@ -148,7 +148,7 @@ export default function Navbar() {
               letterSpacing: ".1rem",
               color: "black",
               textDecoration: "none",
-              fontFamily: "jomolhari",
+              fontFamily: "Serif",
             }}
           >
             <span
@@ -193,7 +193,7 @@ export default function Navbar() {
                   my: 2,
                   color: "black",
                   display: "block",
-                  fontFamily: "jomolhari",
+                  fontFamily: "Serif",
                 }}
               >
                 {page.label}
