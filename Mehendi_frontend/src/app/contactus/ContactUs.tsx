@@ -124,7 +124,7 @@ export default function ContactUs() {
         variant="h6"
         gutterBottom
         sx={{
-          fontWeight: 500,
+          fontWeight: "bold",
           fontSize: { xs: "1rem", sm: "1.1rem", md: "1.3rem" },
           color: { xs: "#444", md: "#111" },
         }}
@@ -132,7 +132,7 @@ export default function ContactUs() {
         Price: {price || "N/A"}
       </Typography>
 
-      {features.length > 0 && (
+      {/* {features.length > 0 && (
         <>
           <Typography
             variant="h6"
@@ -168,7 +168,7 @@ export default function ContactUs() {
             ))}
           </List>
         </>
-      )}
+      )} */}
 
       {/* Contact Form */}
       <Box

@@ -119,15 +119,27 @@ const ServicesPage = () => {
       <Box sx={{ display: "flex", flexDirection: "column", p: 2, flexGrow: 1 }}>
         <Typography
           variant="h6"
-          sx={{ fontFamily: "Serif", fontSize: 20 }}
+          sx={{
+            fontFamily: "Serif",
+            fontSize: 20,
+            color: { xs: "#A7124D", sm: "#8A0F3F", md: "#5C0A2C" },
+          }}
           gutterBottom
         >
           {service.title}
         </Typography>
-        <Typography variant="body2" color="text.secondary" gutterBottom>
+        <Typography
+          variant="body2"
+          color="text.secondary"
+          sx={{ fontFamily: "serif", color: "black" }}
+          gutterBottom
+        >
           {service.description}
         </Typography>
-        <Typography variant="subtitle1" sx={{ fontWeight: "bold", mb: 2 }}>
+        <Typography
+          variant="subtitle1"
+          sx={{ fontWeight: "bold", mb: 2, color: "black" }}
+        >
           {service.price}
         </Typography>
 
@@ -167,14 +179,20 @@ const ServicesPage = () => {
       />
 
       <Box sx={{ py: 2, mb: 4, width: { xs: "100%", sm: "70%", lg: "40%" } }}>
-        <Typography variant="h4" sx={{ fontFamily: "Serif" }}>
+        <Typography variant="h4" sx={{ fontFamily: "Serif", color: "black" }}>
           Elegant Mehendi Packages for Every Celebration
         </Typography>
       </Box>
 
       {/* ---------------- BRIDAL SECTION ---------------- */}
       <Box sx={{ position: "relative", zIndex: 1, mb: 6 }}>
-        <Typography variant="h4" fontWeight="bold" fontSize={20} gutterBottom>
+        <Typography
+          variant="h4"
+          fontWeight="bold"
+          fontSize={20}
+          sx={{ color: "black" }}
+          gutterBottom
+        >
           Bridal Section
         </Typography>
         <Divider sx={{ fontWeight: "bold", my: 2 }} />

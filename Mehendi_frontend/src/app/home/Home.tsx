@@ -52,7 +52,7 @@ export default function Home() {
             backgroundImage: "url('/backgrounImg.jpg')", // 👈 put your bg image here
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.35, // 👈 control opacity here
+            opacity: 0.55, // 👈 control opacity here
             zIndex: -1,
           },
         }}
@@ -111,7 +111,7 @@ export default function Home() {
           {/* Subtitle */}
           <Typography
             variant="h5"
-            fontFamily={"Judson"}
+            fontFamily={"Serif"}
             sx={{
               maxWidth: { xs: "90%", sm: 600 },
               mx: "auto",
@@ -131,7 +131,7 @@ export default function Home() {
               sx={{
                 mt: 3,
                 px: { xs: 2, sm: 3, md: 4 },
-                py: { sm: 1.5 },
+                pt: { sm: 1.8 },
                 fontSize: { xs: 12, sm: 14, md: 16 },
                 background: "#FF5B0A",
                 opacity: "0.9",
@@ -300,7 +300,10 @@ export default function Home() {
               What We Serve
             </Typography>
             <Divider
-              sx={{ bgcolor: "white", width: { sm: "80%", md: "60%" } }}
+              sx={{
+                bgcolor: "white",
+                width: { xs: "100%", sm: "80%", md: "60%" },
+              }}
             />
 
             {whatWeServe.map((item, i) => (
@@ -332,7 +335,7 @@ export default function Home() {
                   <Divider
                     sx={{
                       bgcolor: "white",
-                      width: { sm: "80%", md: "60%" },
+                      width: { xs: "100%", sm: "80%", md: "60%" },
                       my: 1,
                     }}
                   />

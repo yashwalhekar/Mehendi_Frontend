@@ -39,13 +39,18 @@ export default function ServiceDetail() {
         </IconButton> */}
         <Typography
           variant={isMobile ? "h6" : isTablet ? "h5" : "h4"}
-          sx={{ fontWeight: "bold", ml: 1 }}
+          sx={{
+            fontWeight: "bold",
+            ml: 1,
+            fontFamily: "serif",
+            color: { xs: "#A7124D", sm: "#8A0F3F", md: "#5C0A2C" },
+          }}
         >
           {service.title}
         </Typography>
       </Box>
 
-      <Typography sx={{ mb: 3, color: "text.secondary" }}>
+      <Typography sx={{ mb: 3, fontFamily: "serif", color: "text.secondary" }}>
         {service.description}
       </Typography>
 
@@ -56,7 +61,12 @@ export default function ServiceDetail() {
         {service.features.map((f, i) => (
           <ListItem
             key={i}
-            sx={{ display: "list-item", listStyleType: "disc" }}
+            sx={{
+              display: "list-item",
+              color: "black",
+              fontFamily: "serif",
+              listStyleType: "disc",
+            }}
           >
             {f}
           </ListItem>

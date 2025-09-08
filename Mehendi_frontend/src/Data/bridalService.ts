@@ -92,7 +92,7 @@ export const bridalServices = [
 export const festivalMehendiServices = [
   {
     id: "festive-simple-hands",
-    image: "/festiveSimpleHands.jpg",
+    image: "/hand.jpg",
     title: "Simple Festive Mehendi",
     description:
       "Elegant and minimal mehendi designs for hands, perfect for festive occasions and family gatherings.",

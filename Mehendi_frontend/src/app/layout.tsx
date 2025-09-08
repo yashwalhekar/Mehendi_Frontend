@@ -28,7 +28,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        style={{ backgroundColor: "#FFFCF6", margin: 0, padding: 0 }}
+        style={{ backgroundColor: "#FFFF", margin: 0, padding: 0 }}
       >
         <ThemeRegistry>
           <Navbar />

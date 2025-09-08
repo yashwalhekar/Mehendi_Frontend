@@ -1,7 +1,7 @@
 export const pkgData = [
-  { image: "/bridal.jpg", title: "Bridal Package" },
-  { image: "/basic.jpg", title: "Basic Package" },
-  { image: "/festival.jpg", title: "Festival Package" },
+  { image: "/bridal.jpg", title: "Bridal Mehendi" },
+  { image: "/basic.jpg", title: "Regular Mehendi " },
+  { image: "/festival.jpg", title: "Festival Mehendi" },
 ];
 
 export const aboutUs = `
