@@ -54,6 +54,10 @@ export default function ServiceDetail() {
         {service.description}
       </Typography>
 
+      <Typography sx={{ mb: 3, fontFamily: "serif", color: "text.secondary" }}>
+        {service.price}
+      </Typography>
+
       <Typography sx={{ fontWeight: "bold", color: "primary.main" }}>
         Features:
       </Typography>

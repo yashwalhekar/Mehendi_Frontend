@@ -52,7 +52,7 @@ export default function Home() {
             backgroundImage: "url('/backgrounImg.jpg')", // 👈 put your bg image here
             backgroundSize: "cover",
             backgroundPosition: "center",
-            opacity: 0.55, // 👈 control opacity here
+            opacity: 0.65, // 👈 control opacity here
             zIndex: -1,
           },
         }}
@@ -131,7 +131,7 @@ export default function Home() {
               sx={{
                 mt: 3,
                 px: { xs: 2, sm: 3, md: 4 },
-                pt: { sm: 1.8 },
+                py: { sm: 1.2 },
                 fontSize: { xs: 12, sm: 14, md: 16 },
                 background: "#FF5B0A",
                 opacity: "0.9",

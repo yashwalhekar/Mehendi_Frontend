@@ -12,7 +12,11 @@ import {
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import Link from "next/link";
 
-import { bridalServices, festivalMehendiServices } from "@/Data/bridalService";
+import {
+  bridalServices,
+  festivalMehendiServices,
+  regularServices,
+} from "@/Data/bridalService";
 
 const ServicesPage = () => {
   const bridalRef = useRef<HTMLDivElement | null>(null);
@@ -173,7 +177,7 @@ const ServicesPage = () => {
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
-          opacity: 0.2,
+          opacity: 0.6,
           zIndex: 0,
         }}
       />
@@ -258,6 +262,7 @@ const ServicesPage = () => {
           textAlign="start"
           gutterBottom
           fontSize={20}
+          sx={{ color: "black", fontFamily: "Serif" }}
         >
           Festival Services
         </Typography>
@@ -323,6 +328,7 @@ const ServicesPage = () => {
           textAlign="start"
           gutterBottom
           fontSize={20}
+          sx={{ color: "black", fontFamily: "serif" }}
         >
           Regular Services
         </Typography>
@@ -374,7 +380,7 @@ const ServicesPage = () => {
             "&::-webkit-scrollbar": { display: "none" },
           }}
         >
-          {festivalMehendiServices.map((service) => (
+          {regularServices.map((service) => (
             <ServiceCard key={service.id} service={service} bg="#FFFAF4" />
           ))}
         </Box>

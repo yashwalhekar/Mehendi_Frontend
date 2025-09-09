@@ -1,8 +1,25 @@
 export const bridalServices = [
   {
-    id: "full-bridal-with-back",
+    id: "luxury-bridal",
+    image: "/luxuryBridal.jpg",
+    title: "Full Bridal Mehendi (with back) Luxury",
+    description:
+      "Exclusive luxury bridal mehendi with premium, intricate, and customized designs for a royal bridal experience.",
+    price: "₹25,000",
+    features: [
+      "Full bridal coverage (hands, arms, feet, and back)",
+      "Exclusive premium motifs & luxury detailing",
+      "Personalized royal designs",
+      "Use of skin-friendly natural henna",
+      "Complimentary trial session & consultation",
+      "Special post-application care kit",
+      "Mehendi service is free for 4 persons other than bride",
+    ],
+  },
+  {
+    id: "full-bridal-with-back ",
     image: "/bridal.jpg",
-    title: "Full Bridal Mehendi (With Back)",
+    title: "Full Bridal Mehendi (With Back) Premium",
     description:
       "Complete bridal mehendi with intricate designs covering hands, arms, feet, and back for a grand bridal look.",
     price: "₹15,000",
@@ -13,10 +30,11 @@ export const bridalServices = [
       "Back / shoulder coverage",
       "Intricate & customized bridal motifs",
       "Complimentary trial design",
+      "Mehendi service is free for 2 persons other than bride",
     ],
   },
   {
-    id: "full-bridal-no-back",
+    id: "full-bridal-no-back basic",
     image: "/fullBridalNoBack.jpg",
     title: "Full Bridal Mehendi (Hands & Feet Only)",
     description:
@@ -159,5 +177,68 @@ export const festivalMehendiServices = [
       "Festive theme designs",
       "Quick application team",
     ],
+  },
+];
+
+export const regularServices = [
+  {
+    id: "simple-hand",
+    image: "/regularHand.jpg",
+    title: "Simple Hand Mehendi",
+    description:
+      "Elegant and minimal mehendi design for one hand (front only). Perfect for casual or festive occasions.",
+    price: "₹600",
+    features: [
+      "One hand (front only)",
+      "Minimal floral or leafy patterns",
+      "Quick application",
+    ],
+  },
+  {
+    id: "both-hands",
+    image: "/bothHands.jpg",
+    title: "Both Hands Mehendi",
+    description:
+      "Stylish mehendi designs for both hands, front & back, with modern and traditional patterns.",
+    price: "₹2,200",
+    features: [
+      "Both hands (front & back)",
+      "Arabic / Indo-Arabic style patterns",
+      "Customizable simple motifs",
+    ],
+  },
+  {
+    id: "hands-and-feet",
+    image: "/handsFeet.jpg",
+    title: "Hands & Feet Mehendi",
+    description:
+      "Balanced mehendi package for hands and feet, suitable for festive or special occasions.",
+    price: "₹3,500",
+    features: [
+      "Both hands (front & back)",
+      "Feet tops",
+      "Elegant & quick designs",
+    ],
+  },
+  {
+    id: "group-mehendi",
+    image: "/groupMehendi.jpg",
+    title: "Group Mehendi (Per Person)",
+    description:
+      "Special package for bridesmaids, friends, or family members. Price mentioned is per person.",
+    price: "₹700 per person",
+    features: [
+      "Both palms simple design",
+      "Quick application",
+      "Suitable for groups & events",
+    ],
+  },
+  {
+    id: "kids-mehendi",
+    image: "/kidsMehendi.jpg",
+    title: "Kids Mehendi",
+    description: "Cute and small mehendi patterns specially designed for kids.",
+    price: "₹350",
+    features: ["One hand or foot", "Fun & simple motifs", "Quick & skin-safe"],
   },
 ];

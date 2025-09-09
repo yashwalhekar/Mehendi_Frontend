@@ -1,13 +1,11 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import {
   Box,
   Typography,
   TextField,
   Button,
-  List,
-  ListItem,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
@@ -15,6 +13,7 @@ import { useState } from "react";
 
 export default function ContactUs() {
   const searchParams = useSearchParams();
+  const router = useRouter();
 
   const title = searchParams.get("title") || "";
   const price = searchParams.get("price") || "";
@@ -60,6 +59,7 @@ export default function ContactUs() {
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // <600px
+  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // 600px - 900px
 
   return (
     <Box
@@ -68,7 +68,7 @@ export default function ContactUs() {
         minHeight: "100vh",
         display: "flex",
         flexDirection: "column",
-        justifyContent: "center",
+        justifyContent: "flex-start",
         alignItems: "center",
         textAlign: "center",
         overflow: "hidden",
@@ -81,14 +81,45 @@ export default function ContactUs() {
           left: 0,
           right: 0,
           bottom: 0,
-          backgroundImage: "url(/backgrounImg.jpg)", // ✅ your background stays
+          backgroundImage: "url(/backgrounImg.jpg)",
           backgroundSize: "cover",
           backgroundPosition: "center",
-          opacity: 0.15, // keep lighter for readability
+          opacity: 0.15,
           zIndex: -1,
         },
       }}
     >
+      {/* Back Button */}
+      <Box
+        sx={{
+          width: "100%",
+          display: "flex",
+          justifyContent: "flex-start",
+          mb: { xs: 2, sm: 3, md: 4 },
+        }}
+      >
+        <Button
+          variant="outlined"
+          onClick={() => router.back()}
+          sx={{
+            borderRadius: 2,
+            textTransform: "none",
+            fontWeight: "bold",
+            fontSize: { xs: "0.8rem", sm: "0.9rem", md: "1rem" },
+            px: { xs: 1.5, sm: 2.5 },
+            py: { xs: 0.6, sm: 0.8 },
+            color: "#A7124D",
+            borderColor: "#A7124D",
+            "&:hover": {
+              bgcolor: "rgba(167, 18, 77, 0.1)",
+              borderColor: "#8A0F3F",
+            },
+          }}
+        >
+          ← Back
+        </Button>
+      </Box>
+
       {/* Service details */}
       <Typography
         variant="h3"
@@ -96,7 +127,7 @@ export default function ContactUs() {
         sx={{
           fontWeight: "bold",
           fontFamily: "'Playfair Display', serif",
-          fontSize: { xs: "1.8rem", sm: "2.5rem", md: "3rem" },
+          fontSize: { xs: "1.6rem", sm: "2.2rem", md: "2.8rem" },
           color: { xs: "#A7124D", sm: "#8A0F3F", md: "#5C0A2C" },
         }}
       >
@@ -111,9 +142,10 @@ export default function ContactUs() {
             mb: 3,
             maxWidth: 700,
             mx: "auto",
-            fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+            fontSize: { xs: "0.85rem", sm: "1rem", md: "1.1rem" },
             lineHeight: { xs: 1.4, sm: 1.6, md: 1.8 },
             color: "#222",
+            px: { xs: 1, sm: 2 },
           }}
         >
           {description}
@@ -125,50 +157,12 @@ export default function ContactUs() {
         gutterBottom
         sx={{
           fontWeight: "bold",
-          fontSize: { xs: "1rem", sm: "1.1rem", md: "1.3rem" },
+          fontSize: { xs: "0.9rem", sm: "1.1rem", md: "1.3rem" },
           color: { xs: "#444", md: "#111" },
         }}
       >
         Price: {price || "N/A"}
       </Typography>
-
-      {/* {features.length > 0 && (
-        <>
-          <Typography
-            variant="h6"
-            sx={{
-              mt: 2,
-              fontWeight: "bold",
-              fontSize: { xs: "1rem", sm: "1.2rem", md: "1.4rem" },
-              color: "#A7124D",
-            }}
-          >
-            Features:
-          </Typography>
-          <List
-            sx={{
-              maxWidth: 600,
-              mx: "auto",
-              textAlign: "left",
-              fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
-              color: "#333",
-            }}
-          >
-            {features.map((f, i) => (
-              <ListItem
-                key={i}
-                sx={{
-                  display: "list-item",
-                  listStyleType: "disc",
-                  pl: { xs: 2, sm: 3 },
-                }}
-              >
-                {f}
-              </ListItem>
-            ))}
-          </List>
-        </>
-      )} */}
 
       {/* Contact Form */}
       <Box
@@ -176,13 +170,13 @@ export default function ContactUs() {
         sx={{
           display: "flex",
           flexDirection: "column",
-          gap: 2.5,
-          mt: 4,
+          gap: { xs: 2, sm: 2.5 },
+          mt: { xs: 3, sm: 4 },
           width: "100%",
           maxWidth: { xs: "100%", sm: 500 },
           p: { xs: 2, sm: 3 },
           borderRadius: 3,
-          background: "rgba(255,255,255,0.8)", // ✅ keeps text readable on bg
+          background: "rgba(255,255,255,0.8)",
           boxShadow: { xs: "none", sm: "0 4px 20px rgba(0,0,0,0.1)" },
         }}
         onSubmit={(e) => {
@@ -234,11 +228,11 @@ export default function ContactUs() {
             textTransform: "none",
             py: { xs: 1, sm: 1.2 },
             bgcolor: "#A7124D",
-            fontSize: { xs: "0.9rem", sm: "1rem", md: "1.1rem" },
+            fontSize: { xs: "0.85rem", sm: "1rem", md: "1.1rem" },
             "&:hover": { bgcolor: "#8a0f3f" },
           }}
         >
-          Book Now via Whatsapp
+          Book Now
         </Button>
       </Box>
     </Box>
