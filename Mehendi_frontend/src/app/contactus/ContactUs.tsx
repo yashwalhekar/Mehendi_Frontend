@@ -232,7 +232,7 @@ export default function ContactUs() {
             "&:hover": { bgcolor: "#8a0f3f" },
           }}
         >
-          Book Now
+          Submit
         </Button>
       </Box>
     </Box>

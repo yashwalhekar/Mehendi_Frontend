@@ -2,6 +2,7 @@ export const bridalServices = [
   {
     id: "luxury-bridal",
     image: "/luxuryBridal.jpg",
+    bgImage: "/bg/bridalBg.jpg",
     title: "Full Bridal Mehendi (with back) Luxury",
     description:
       "Exclusive luxury bridal mehendi with premium, intricate, and customized designs for a royal bridal experience.",
@@ -13,12 +14,12 @@ export const bridalServices = [
       "Use of skin-friendly natural henna",
       "Complimentary trial session & consultation",
       "Special post-application care kit",
-      "Mehendi service is free for 4 persons other than bride",
     ],
   },
   {
-    id: "full-bridal-with-back ",
+    id: "full-bridal-with-back",
     image: "/bridal.jpg",
+    bgImage: "/bg/backgroundImg1.jpg",
     title: "Full Bridal Mehendi (With Back) Premium",
     description:
       "Complete bridal mehendi with intricate designs covering hands, arms, feet, and back for a grand bridal look.",
@@ -30,12 +31,12 @@ export const bridalServices = [
       "Back / shoulder coverage",
       "Intricate & customized bridal motifs",
       "Complimentary trial design",
-      "Mehendi service is free for 2 persons other than bride",
     ],
   },
   {
-    id: "full-bridal-no-back basic",
+    id: "full-bridal-no-back-basic",
     image: "/fullBridalNoBack.jpg",
+    bgImage: "/bg/bg2.jpg",
     title: "Full Bridal Mehendi (Hands & Feet Only)",
     description:
       "Perfect for brides who want full hand and feet coverage without designs on the back.",
@@ -51,6 +52,7 @@ export const bridalServices = [
   {
     id: "bridal-hands-only",
     image: "/bridalhand.jpg",
+    bgImage: "/bg/bg2.jpg",
     title: "Bridal Hands Only",
     description:
       "For brides who prefer detailed designs only on their hands, excluding feet and back.",
@@ -65,6 +67,7 @@ export const bridalServices = [
   {
     id: "bridal-feet-only",
     image: "/footOnly.jpg",
+    bgImage: "/bg/bg2.jpg",
     title: "Bridal Feet Only",
     description:
       "Dedicated bridal mehendi for feet with beautiful and intricate detailing.",
@@ -79,6 +82,7 @@ export const bridalServices = [
   {
     id: "minimal-bridal",
     image: "/partialBridal.jpg",
+    bgImage: "/bg/bg2.jpg",
     title: "Minimal Bridal Mehendi",
     description:
       "For brides who prefer light designs only on palms and feet tops without full coverage.",
@@ -93,6 +97,7 @@ export const bridalServices = [
   {
     id: "custom-bridal",
     image: "/customBridal.jpg",
+    bgImage: "/bg/bg2.jpg",
     title: "Customized Bridal Mehendi",
     description:
       "Tailored mehendi package where brides can choose specific areas like only front hands, arms, partial feet, or exclude back.",
@@ -111,6 +116,7 @@ export const festivalMehendiServices = [
   {
     id: "festive-simple-hands",
     image: "/hand.jpg",
+    bgImage: "/bg/bg2.jpg",
     title: "Simple Festive Mehendi",
     description:
       "Elegant and minimal mehendi designs for hands, perfect for festive occasions and family gatherings.",
@@ -125,6 +131,7 @@ export const festivalMehendiServices = [
   {
     id: "festive-full-hands",
     image: "/festiveFullHands.jpg",
+    bgImage: "/bg/bg2.jpg",
     title: "Full Hands Festive Mehendi",
     description:
       "Traditional mehendi covering both sides of hands with medium detailing, ideal for festivals and parties.",
@@ -139,6 +146,7 @@ export const festivalMehendiServices = [
   {
     id: "festive-hands-and-feet",
     image: "/festiveHandsFeet.jpg",
+    bgImage: "/bg/bg2.jpg",
     title: "Hands & Feet Festive Mehendi",
     description:
       "Beautiful mehendi for both hands and feet, adding charm and elegance to your festive look.",
@@ -153,6 +161,7 @@ export const festivalMehendiServices = [
   {
     id: "arabic-festive-style",
     image: "/arabicFestiveStyle.jpg",
+    bgImage: "/bg/bg2.jpg",
     title: "Arabic Festive Mehendi",
     description:
       "Stylish Arabic mehendi with bold floral and leafy patterns, giving a modern festive touch.",
@@ -167,6 +176,7 @@ export const festivalMehendiServices = [
   {
     id: "group-festive-mehendi",
     image: "/groupFestiveMehendi.jpg",
+    bgImage: "/bg/bg2.jpg",
     title: "Group / Family Festive Mehendi",
     description:
       "Special package for family and friends celebrating festivals together with coordinated mehendi designs.",
@@ -184,6 +194,7 @@ export const regularServices = [
   {
     id: "simple-hand",
     image: "/regularHand.jpg",
+    bgImage: "/bg/bg2.jpg",
     title: "Simple Hand Mehendi",
     description:
       "Elegant and minimal mehendi design for one hand (front only). Perfect for casual or festive occasions.",
@@ -197,6 +208,7 @@ export const regularServices = [
   {
     id: "both-hands",
     image: "/bothHands.jpg",
+    bgImage: "/bg/bg2.jpg",
     title: "Both Hands Mehendi",
     description:
       "Stylish mehendi designs for both hands, front & back, with modern and traditional patterns.",
@@ -210,6 +222,7 @@ export const regularServices = [
   {
     id: "hands-and-feet",
     image: "/handsFeet.jpg",
+    bgImage: "/bg/bg2.jpg",
     title: "Hands & Feet Mehendi",
     description:
       "Balanced mehendi package for hands and feet, suitable for festive or special occasions.",
@@ -223,6 +236,7 @@ export const regularServices = [
   {
     id: "group-mehendi",
     image: "/groupMehendi.jpg",
+    bgImage: "/bg/bg2.jpg",
     title: "Group Mehendi (Per Person)",
     description:
       "Special package for bridesmaids, friends, or family members. Price mentioned is per person.",
@@ -236,6 +250,7 @@ export const regularServices = [
   {
     id: "kids-mehendi",
     image: "/kidsMehendi.jpg",
+    bgImage: "/bg/bg2.jpg",
     title: "Kids Mehendi",
     description: "Cute and small mehendi patterns specially designed for kids.",
     price: "₹350",

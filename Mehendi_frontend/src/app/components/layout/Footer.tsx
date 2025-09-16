@@ -52,7 +52,7 @@ const Footer = () => {
               fontSize="small"
               sx={{ marginRight: 1, fontSize: { xs: 15 } }}
             />
-            +91 7350304508
+            +919834503365
           </span>
           <span>
             <MailIcon
