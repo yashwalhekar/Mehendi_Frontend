@@ -9,7 +9,11 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
-import { bridalServices, festivalMehendiServices } from "@/Data/bridalService";
+import {
+  bridalServices,
+  festivalMehendiServices,
+  regularServices,
+} from "@/Data/bridalService";
 
 export default function ServiceDetail() {
   const { id } = useParams();
@@ -18,7 +22,11 @@ export default function ServiceDetail() {
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md"));
 
-  const allServices = [...bridalServices, ...festivalMehendiServices];
+  const allServices = [
+    ...bridalServices,
+    ...festivalMehendiServices,
+    ...regularServices,
+  ];
   const service = allServices.find((s) => s.id.toString() === id);
 
   if (!service) {
@@ -47,12 +55,12 @@ export default function ServiceDetail() {
           top: 0,
           left: 0,
           right: 0,
-          height: "700px", // 👈 adjust this height as needed
+          height: "700px",
           backgroundImage: `url(${service.bgImage || "/bg/bg2/jpg"})`,
           backgroundSize: "cover",
           backgroundPosition: "bottom left",
-          backgroundRepeat: "no-repeat", // 👈 no repetition
-          opacity: { md: 0.7, sm: 0.3, xs: 0.3 }, // 👈 reduce opacity
+          backgroundRepeat: "no-repeat",
+          opacity: { md: 0.7, sm: 0.3, xs: 0.3 },
           zIndex: 0,
         }}
       />

@@ -9,6 +9,8 @@ import {
   useTheme,
   useMediaQuery,
 } from "@mui/material";
+import { DatePicker, LocalizationProvider } from "@mui/x-date-pickers";
+import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns";
 import { useState } from "react";
 
 export default function ContactUs() {
@@ -21,15 +23,26 @@ export default function ContactUs() {
   const featuresParam = searchParams.get("features") || "[]";
   const features: string[] = JSON.parse(featuresParam);
 
-  const [form, setForm] = useState({
+  const [form, setForm] = useState<{
+    name: string;
+    email: string;
+    phone: string;
+    address: string;
+    bookingDate: Date | null;
+  }>({
     name: "",
     email: "",
     phone: "",
-    message: "",
+    address: "",
+    bookingDate: null,
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
+  };
+
+  const handleDateChange = (newDate: Date | null) => {
+    setForm({ ...form, bookingDate: newDate });
   };
 
   const handleSubmit = () => {
@@ -41,13 +54,15 @@ export default function ContactUs() {
 *Service:* ${title}
 *Price:* ${price}
 *Description:* ${description}
-*Features:* ${features.join(", ")}
 
 *Customer Info*
 👤 Name: ${form.name}
 📧 Email: ${form.email}
 📞 Phone: ${form.phone}
-💬 Message: ${form.message}
+🏠 Address: ${form.address}
+📅 Booking Date: ${
+      form.bookingDate ? form.bookingDate.toLocaleDateString() : "Not provided"
+    }
     `;
 
     const encodedMessage = encodeURIComponent(whatsappMessage);
@@ -59,7 +74,6 @@ export default function ContactUs() {
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm")); // <600px
-  const isTablet = useMediaQuery(theme.breakpoints.between("sm", "md")); // 600px - 900px
 
   return (
     <Box
@@ -165,76 +179,89 @@ export default function ContactUs() {
       </Typography>
 
       {/* Contact Form */}
-      <Box
-        component="form"
-        sx={{
-          display: "flex",
-          flexDirection: "column",
-          gap: { xs: 2, sm: 2.5 },
-          mt: { xs: 3, sm: 4 },
-          width: "100%",
-          maxWidth: { xs: "100%", sm: 500 },
-          p: { xs: 2, sm: 3 },
-          borderRadius: 3,
-          background: "rgba(255,255,255,0.8)",
-          boxShadow: { xs: "none", sm: "0 4px 20px rgba(0,0,0,0.1)" },
-        }}
-        onSubmit={(e) => {
-          e.preventDefault();
-          handleSubmit();
-        }}
-      >
-        <TextField
-          label="Name"
-          name="name"
-          variant="outlined"
-          fullWidth
-          onChange={handleChange}
-          size={isMobile ? "small" : "medium"}
-        />
-        <TextField
-          label="Email"
-          name="email"
-          variant="outlined"
-          fullWidth
-          onChange={handleChange}
-          size={isMobile ? "small" : "medium"}
-        />
-        <TextField
-          label="Phone Number"
-          name="phone"
-          variant="outlined"
-          fullWidth
-          onChange={handleChange}
-          size={isMobile ? "small" : "medium"}
-        />
-        <TextField
-          label="Message"
-          name="message"
-          variant="outlined"
-          fullWidth
-          multiline
-          rows={isMobile ? 3 : 4}
-          onChange={handleChange}
-          size={isMobile ? "small" : "medium"}
-        />
-        <Button
-          type="submit"
-          variant="contained"
-          size={isMobile ? "medium" : "large"}
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <Box
+          component="form"
           sx={{
-            borderRadius: 2,
-            fontWeight: "bold",
-            textTransform: "none",
-            py: { xs: 1, sm: 1.2 },
-            bgcolor: "#A7124D",
-            fontSize: { xs: "0.85rem", sm: "1rem", md: "1.1rem" },
-            "&:hover": { bgcolor: "#8a0f3f" },
+            display: "flex",
+            flexDirection: "column",
+            gap: { xs: 2, sm: 2.5 },
+            mt: { xs: 3, sm: 4 },
+            width: "100%",
+            maxWidth: { xs: "100%", sm: 500 },
+            p: { xs: 2, sm: 3 },
+            borderRadius: 3,
+            background: "rgba(255,255,255,0.8)",
+            boxShadow: { xs: "none", sm: "0 4px 20px rgba(0,0,0,0.1)" },
+          }}
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleSubmit();
           }}
         >
-          Submit
-        </Button>
-      </Box>
+          <TextField
+            label="Name"
+            name="name"
+            variant="outlined"
+            fullWidth
+            onChange={handleChange}
+            size={isMobile ? "small" : "medium"}
+          />
+          <TextField
+            label="Email"
+            name="email"
+            variant="outlined"
+            fullWidth
+            onChange={handleChange}
+            size={isMobile ? "small" : "medium"}
+          />
+          <TextField
+            label="Phone Number"
+            name="phone"
+            variant="outlined"
+            fullWidth
+            onChange={handleChange}
+            size={isMobile ? "small" : "medium"}
+          />
+          <TextField
+            label="Address"
+            name="address"
+            variant="outlined"
+            fullWidth
+            multiline
+            rows={isMobile ? 2 : 3}
+            onChange={handleChange}
+            size={isMobile ? "small" : "medium"}
+          />
+          <DatePicker
+            label="Booking Date"
+            value={form.bookingDate}
+            onChange={handleDateChange}
+            slotProps={{
+              textField: {
+                fullWidth: true,
+                size: isMobile ? "small" : "medium",
+              },
+            }}
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            size={isMobile ? "medium" : "large"}
+            sx={{
+              borderRadius: 2,
+              fontWeight: "bold",
+              textTransform: "none",
+              py: { xs: 1, sm: 1.2 },
+              bgcolor: "#A7124D",
+              fontSize: { xs: "0.85rem", sm: "1rem", md: "1.1rem" },
+              "&:hover": { bgcolor: "#8a0f3f" },
+            }}
+          >
+            Submit
+          </Button>
+        </Box>
+      </LocalizationProvider>
     </Box>
   );
 }

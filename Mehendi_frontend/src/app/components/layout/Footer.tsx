@@ -117,7 +117,7 @@ const Footer = () => {
           }}
         >
           <Link
-            href="/services"
+            href="/categories"
             underline="hover"
             sx={{ color: "white", fontSize: 14, cursor: "pointer" }}
           >
