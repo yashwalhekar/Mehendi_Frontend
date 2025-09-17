@@ -90,7 +90,7 @@ export default function Home() {
               width: { xs: 130, sm: 160, md: 250 },
               height: "auto",
               mb: -3,
-              borderRadius: 2,
+              borderRadius: 7,
               display: loaded ? "block" : "none",
             }}
           />
@@ -249,7 +249,11 @@ export default function Home() {
                   scrollSnapAlign: { xs: "start", sm: "center", md: "center" }, // snap start looks better for partial visibility
                 }}
               >
-                <PackageCards image={pkg.image} title={pkg.title} />
+                <Link
+                  href={{ pathname: "/categories", query: { type: pkg.query } }}
+                >
+                  <PackageCards image={pkg.image} title={pkg.title} />
+                </Link>
               </Box>
             ))}
           </Box>

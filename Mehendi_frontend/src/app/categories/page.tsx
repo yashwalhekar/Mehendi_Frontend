@@ -18,10 +18,11 @@ import {
   regularServices,
 } from "@/Data/bridalService";
 import Footer from "../components/layout/Footer";
+import { useSearchParams } from "next/navigation";
 
 const ServicesPage = () => {
   const bridalRef = useRef<HTMLDivElement | null>(null);
-  const otherRef = useRef<HTMLDivElement | null>(null);
+
   const festivalRef = useRef<HTMLDivElement | null>(null);
   const basicRef = useRef<HTMLDivElement | null>(null);
 
@@ -38,7 +39,9 @@ const ServicesPage = () => {
     left: false,
     right: true,
   });
-  const [otherScroll, setOtherScroll] = useState({ left: false, right: true });
+
+  const searchParams = useSearchParams();
+  const type = searchParams.get("type");
 
   const checkScroll = (
     ref: React.RefObject<HTMLDivElement | null>,
@@ -191,202 +194,209 @@ const ServicesPage = () => {
         </Box>
 
         {/* ---------------- BRIDAL SECTION ---------------- */}
-        <Box sx={{ position: "relative", zIndex: 1, mb: 6 }}>
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-            fontSize={20}
-            sx={{ color: "black" }}
-            gutterBottom
-          >
-            Bridal Section
-          </Typography>
-          <Divider sx={{ fontWeight: "bold", my: 2 }} />
 
-          {/* Arrows */}
-          {isDesktop && bridalScroll.left && (
-            <IconButton
-              onClick={() => scroll(bridalRef, "left")}
+        {(!type || type === "bridal") && (
+          <Box sx={{ position: "relative", zIndex: 1, mb: 6 }}>
+            <Typography
+              variant="h4"
+              fontWeight="bold"
+              fontSize={20}
+              sx={{ color: "black" }}
+              gutterBottom
+            >
+              Bridal Section
+            </Typography>
+            <Divider sx={{ fontWeight: "bold", my: 2 }} />
+
+            {/* Arrows */}
+            {isDesktop && bridalScroll.left && (
+              <IconButton
+                onClick={() => scroll(bridalRef, "left")}
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  left: -15,
+                  transform: "translateY(-50%)",
+                  bgcolor: "white",
+                  opacity: 0.5,
+                  boxShadow: 2,
+                  "&:hover": { opacity: 0.9 },
+                }}
+              >
+                <ArrowBackIos />
+              </IconButton>
+            )}
+            {isDesktop && bridalScroll.right && (
+              <IconButton
+                onClick={() => scroll(bridalRef, "right")}
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  right: -15,
+                  transform: "translateY(-50%)",
+                  bgcolor: "white",
+                  opacity: 0.5,
+                  boxShadow: 2,
+                  "&:hover": { opacity: 0.9 },
+                }}
+              >
+                <ArrowForwardIos />
+              </IconButton>
+            )}
+
+            <Box
+              ref={bridalRef}
               sx={{
-                position: "absolute",
-                top: "50%",
-                left: -15,
-                transform: "translateY(-50%)",
-                bgcolor: "white",
-                opacity: 0.5,
-                boxShadow: 2,
-                "&:hover": { opacity: 0.9 },
+                display: "flex",
+                gap: 3,
+                overflowX: "auto",
+                pb: 2,
+                scrollBehavior: "smooth",
+                "&::-webkit-scrollbar": { display: "none" },
               }}
             >
-              <ArrowBackIos />
-            </IconButton>
-          )}
-          {isDesktop && bridalScroll.right && (
-            <IconButton
-              onClick={() => scroll(bridalRef, "right")}
-              sx={{
-                position: "absolute",
-                top: "50%",
-                right: -15,
-                transform: "translateY(-50%)",
-                bgcolor: "white",
-                opacity: 0.5,
-                boxShadow: 2,
-                "&:hover": { opacity: 0.9 },
-              }}
-            >
-              <ArrowForwardIos />
-            </IconButton>
-          )}
-
-          <Box
-            ref={bridalRef}
-            sx={{
-              display: "flex",
-              gap: 3,
-              overflowX: "auto",
-              pb: 2,
-              scrollBehavior: "smooth",
-              "&::-webkit-scrollbar": { display: "none" },
-            }}
-          >
-            {bridalServices.map((service) => (
-              <ServiceCard key={service.id} service={service} bg="#FFFCF4" />
-            ))}
+              {bridalServices.map((service) => (
+                <ServiceCard key={service.id} service={service} bg="#FFFCF4" />
+              ))}
+            </Box>
           </Box>
-        </Box>
+        )}
 
         {/* ---------------- OTHER SERVICES SECTION ---------------- */}
-        <Box sx={{ position: "relative", zIndex: 1, mb: 6 }}>
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-            textAlign="start"
-            gutterBottom
-            fontSize={20}
-            sx={{ color: "black", fontFamily: "Serif" }}
-          >
-            Festival Services
-          </Typography>
-          <Divider sx={{ fontWeight: "bold", my: 2 }} />
-          {/* Arrows */}
-          {isDesktop && festivalScroll.left && (
-            <IconButton
-              onClick={() => scroll(festivalRef, "left")}
-              sx={{
-                position: "absolute",
-                top: "50%",
-                left: -15,
-                transform: "translateY(-50%)",
-                bgcolor: "white",
-                opacity: 0.5,
-                boxShadow: 2,
-                "&:hover": { opacity: 0.9 },
-              }}
+        {(!type || type === "festival") && (
+          <Box sx={{ position: "relative", zIndex: 1, mb: 6 }}>
+            <Typography
+              variant="h4"
+              fontWeight="bold"
+              textAlign="start"
+              gutterBottom
+              fontSize={20}
+              sx={{ color: "black", fontFamily: "Serif" }}
             >
-              <ArrowBackIos />
-            </IconButton>
-          )}
-          {isDesktop && festivalScroll.right && (
-            <IconButton
-              onClick={() => scroll(festivalRef, "right")}
-              sx={{
-                position: "absolute",
-                top: "50%",
-                right: -15,
-                transform: "translateY(-50%)",
-                bgcolor: "white",
-                opacity: 0.5,
-                boxShadow: 2,
-                "&:hover": { opacity: 0.9 },
-              }}
-            >
-              <ArrowForwardIos />
-            </IconButton>
-          )}
+              Festival Services
+            </Typography>
+            <Divider sx={{ fontWeight: "bold", my: 2 }} />
+            {/* Arrows */}
+            {isDesktop && festivalScroll.left && (
+              <IconButton
+                onClick={() => scroll(festivalRef, "left")}
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  left: -15,
+                  transform: "translateY(-50%)",
+                  bgcolor: "white",
+                  opacity: 0.5,
+                  boxShadow: 2,
+                  "&:hover": { opacity: 0.9 },
+                }}
+              >
+                <ArrowBackIos />
+              </IconButton>
+            )}
+            {isDesktop && festivalScroll.right && (
+              <IconButton
+                onClick={() => scroll(festivalRef, "right")}
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  right: -15,
+                  transform: "translateY(-50%)",
+                  bgcolor: "white",
+                  opacity: 0.5,
+                  boxShadow: 2,
+                  "&:hover": { opacity: 0.9 },
+                }}
+              >
+                <ArrowForwardIos />
+              </IconButton>
+            )}
 
-          <Box
-            ref={festivalRef}
-            sx={{
-              display: "flex",
-              gap: 3,
-              overflowX: "auto",
-              pb: 2,
-              scrollBehavior: "smooth",
-              "&::-webkit-scrollbar": { display: "none" },
-            }}
-          >
-            {festivalMehendiServices.map((service) => (
-              <ServiceCard key={service.id} service={service} bg="#FFFAF4" />
-            ))}
+            <Box
+              ref={festivalRef}
+              sx={{
+                display: "flex",
+                gap: 3,
+                overflowX: "auto",
+                pb: 2,
+                scrollBehavior: "smooth",
+                "&::-webkit-scrollbar": { display: "none" },
+              }}
+            >
+              {festivalMehendiServices.map((service) => (
+                <ServiceCard key={service.id} service={service} bg="#FFFAF4" />
+              ))}
+            </Box>
           </Box>
-        </Box>
+        )}
 
         {/* Basic Section */}
-        <Box sx={{ position: "relative", zIndex: 1 }}>
-          <Typography
-            variant="h4"
-            fontWeight="bold"
-            textAlign="start"
-            gutterBottom
-            fontSize={20}
-            sx={{ color: "black", fontFamily: "serif" }}
-          >
-            Regular Services
-          </Typography>
-          <Divider sx={{ fontWeight: "bold", my: 2 }} />
-          {/* Arrows */}
-          {isDesktop && basicScroll.left && (
-            <IconButton
-              onClick={() => scroll(basicRef, "left")}
-              sx={{
-                position: "absolute",
-                top: "50%",
-                left: -15,
-                transform: "translateY(-50%)",
-                bgcolor: "white",
-                opacity: 0.5,
-                boxShadow: 2,
-                "&:hover": { opacity: 0.9 },
-              }}
+        {(!type || type === "regular") && (
+          <Box sx={{ position: "relative", zIndex: 1 }}>
+            <Typography
+              variant="h4"
+              fontWeight="bold"
+              textAlign="start"
+              gutterBottom
+              fontSize={20}
+              sx={{ color: "black", fontFamily: "serif" }}
             >
-              <ArrowBackIos />
-            </IconButton>
-          )}
-          {isDesktop && basicScroll.right && (
-            <IconButton
-              onClick={() => scroll(basicRef, "right")}
-              sx={{
-                position: "absolute",
-                top: "50%",
-                right: -15,
-                transform: "translateY(-50%)",
-                bgcolor: "white",
-                opacity: 0.5,
-                boxShadow: 2,
-                "&:hover": { opacity: 0.9 },
-              }}
-            >
-              <ArrowForwardIos />
-            </IconButton>
-          )}
+              Regular Services
+            </Typography>
+            <Divider sx={{ fontWeight: "bold", my: 2 }} />
+            {/* Arrows */}
+            {isDesktop && basicScroll.left && (
+              <IconButton
+                onClick={() => scroll(basicRef, "left")}
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  left: -15,
+                  transform: "translateY(-50%)",
+                  bgcolor: "white",
+                  opacity: 0.5,
+                  boxShadow: 2,
+                  "&:hover": { opacity: 0.9 },
+                }}
+              >
+                <ArrowBackIos />
+              </IconButton>
+            )}
+            {isDesktop && basicScroll.right && (
+              <IconButton
+                onClick={() => scroll(basicRef, "right")}
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  right: -15,
+                  transform: "translateY(-50%)",
+                  bgcolor: "white",
+                  opacity: 0.5,
+                  boxShadow: 2,
+                  "&:hover": { opacity: 0.9 },
+                }}
+              >
+                <ArrowForwardIos />
+              </IconButton>
+            )}
 
-          <Box
-            ref={basicRef}
-            sx={{
-              display: "flex",
-              gap: 3,
-              overflowX: "auto",
-              pb: 2,
-              scrollBehavior: "smooth",
-              "&::-webkit-scrollbar": { display: "none" },
-            }}
-          >
-            {regularServices.map((service) => (
-              <ServiceCard key={service.id} service={service} bg="#FFFAF4" />
-            ))}
+            <Box
+              ref={basicRef}
+              sx={{
+                display: "flex",
+                gap: 3,
+                overflowX: "auto",
+                pb: 2,
+                scrollBehavior: "smooth",
+                "&::-webkit-scrollbar": { display: "none" },
+              }}
+            >
+              {regularServices.map((service) => (
+                <ServiceCard key={service.id} service={service} bg="#FFFAF4" />
+              ))}
+            </Box>
           </Box>
-        </Box>
+        )}
       </Box>
 
       <Footer />
