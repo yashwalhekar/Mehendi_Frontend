@@ -1,9 +1,13 @@
 import ServicesPage from "./ServicePage";
 
-export default function CategoriesPage({
+export default async function CategoriesPage({
   searchParams,
 }: {
-  searchParams?: { [key: string]: string | string[] | undefined };
+  searchParams?: Promise<{ [key: string]: string | string[] | undefined }>;
 }) {
-  return <ServicesPage type={searchParams?.type as string | undefined} />;
+  // If it's a Promise (as Next.js types it), await it
+  const resolvedParams = searchParams ? await searchParams : {};
+  const type = resolvedParams?.type as string | undefined;
+
+  return <ServicesPage type={type} />;
 }
