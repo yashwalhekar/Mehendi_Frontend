@@ -1,9 +1,18 @@
 import ServicesPage from "./ServicePage";
 
-interface PageProps {
-  searchParams?: { [key: string]: string | string[] | undefined };
-}
+export default function CategoriesPage({
+  searchParams,
+}: {
+  searchParams?:
+    | { [key: string]: string | string[] | undefined }
+    | Promise<any>;
+}) {
+  // If Next.js gave us a Promise, resolve it
+  if (searchParams instanceof Promise) {
+    throw new Error(
+      "searchParams is unexpectedly a Promise. Update Next.js types."
+    );
+  }
 
-export default function CategoriesPage({ searchParams }: PageProps) {
   return <ServicesPage type={searchParams?.type as string | undefined} />;
 }
